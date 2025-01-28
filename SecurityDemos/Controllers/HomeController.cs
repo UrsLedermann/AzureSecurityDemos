@@ -38,7 +38,7 @@ public class HomeController : Controller
        //donwload an image from blob storage and display it as an image on a page
         BlobServiceClient blobServiceClient = new BlobServiceClient(new Uri(_configuration.GetConnectionString("StorageAccount")));
         BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient("anonymousimages");
-        BlobClient blobClient = containerClient.GetBlobClient("MSLogo.png");
+        BlobClient blobClient = containerClient.GetBlobClient("emea-star.png");
         var blobDownloadInfo = blobClient.Download();
         var imageStream = blobDownloadInfo.Value.Content;
         return File(imageStream, "image/png");
@@ -56,7 +56,7 @@ public class HomeController : Controller
         BlobServiceClient blobServiceClient = new BlobServiceClient(new Uri(_configuration.GetConnectionString("StorageAccount")), new DefaultAzureCredential(), null);
 
         BlobContainerClient containerClient = blobServiceClient.GetBlobContainerClient("secureimages");
-        BlobClient blobClient = containerClient.GetBlobClient("MSLogo.png");
+        BlobClient blobClient = containerClient.GetBlobClient("emea-star.png");
         var blobDownloadInfo = blobClient.Download();
         var imageStream = blobDownloadInfo.Value.Content;
         return File(imageStream, "image/png");
